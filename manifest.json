@@ -1,0 +1,103 @@
+{
+    "name": "app-pje-dev",
+    "version": "1.0.0",
+    "description": "Consulta Andamento – PJe: Obtém andamentos processuais diretamente do sistema PJe",
+    "auth": {
+        "description": {
+            "title": "Configuração de Acesso ao PJe",
+            "body": "Configure suas credenciais para acessar o sistema PJe.",
+            "footer": "As credenciais são armazenadas com segurança e usadas apenas para consultas autorizadas.",
+            "link": "https://doc9.com.br/suporte"
+        },
+        "params": [
+            {
+                "name": "whomToken",
+                "type": "string",
+                "inputType": "text",
+                "required": true,
+                "label": "Token do Whom"
+            },
+            {
+                "name": "whomExtensionId",
+                "type": "string",
+                "inputType": "text",
+                "required": true,
+                "label": "ID da Extensão do Whom"
+            }
+        ]
+    },
+    "functions": {
+        "consultarProcesso": {
+            "script": "dist/consultarProcesso.js",
+            "description": "Consulta andamentos processuais no sistema PJe",
+            "category": "judicial",
+            "values": {
+                "numeroProcesso": "0000000-00.0000.0.00.0000",
+                "tribunal": "TRT"
+            },
+            "params": [
+                {
+                    "name": "numeroProcesso",
+                    "type": "string",
+                    "inputType": "text",
+                    "required": true,
+                    "label": "Número do Processo"
+                },
+                {
+                    "name": "tribunal",
+                    "type": "string",
+                    "inputType": "text",
+                    "required": false,
+                    "label": "Tribunal (ex: TRT, TRF)"
+                }
+            ]
+        },
+        "listarProcessos": {
+            "script": "dist/listarProcessos.js",
+            "description": "Lista todos os processos vinculados ao advogado no PJe",
+            "category": "judicial",
+            "values": {
+                "oab": "",
+                "estado": "SP",
+                "pagina": 1,
+                "limite": 20
+            },
+            "params": [
+                {
+                    "name": "oab",
+                    "type": "string",
+                    "inputType": "text",
+                    "required": false,
+                    "label": "Número da OAB"
+                },
+                {
+                    "name": "estado",
+                    "type": "string",
+                    "inputType": "text",
+                    "required": false,
+                    "label": "Estado da OAB (UF)"
+                },
+                {
+                    "name": "pagina",
+                    "type": "number",
+                    "inputType": "number",
+                    "required": false,
+                    "label": "Página de resultados"
+                },
+                {
+                    "name": "limite",
+                    "type": "number",
+                    "inputType": "number",
+                    "required": false,
+                    "label": "Limite de processos por página"
+                }
+            ]
+        }
+    },
+    "config": {
+        "timeout": 60000,
+        "max_retries": 3,
+        "cache_ttl": 3600
+    },
+    "mcp": true
+}
