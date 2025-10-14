@@ -35,6 +35,12 @@
                 "numeroProcesso": "0000000-00.0000.0.00.0000",
                 "tribunal": "TRT"
             },
+            "help": {
+                "title": "Como usar a função consultarProcesso",
+                "body": "Use esta função para consultar andamentos processuais diretamente do sistema PJe. Forneça o número do processo que deseja consultar e, opcionalmente, o tribunal específico.",
+                "footer": "",
+                "link": ""
+            },
             "params": [
                 {
                     "name": "numeroProcesso",
@@ -61,6 +67,12 @@
                 "estado": "SP",
                 "pagina": 1,
                 "limite": 20
+            },
+            "help": {
+                "title": "Como usar a função listarProcessos",
+                "body": "Use esta função para listar todos os processos vinculados ao advogado autenticado no sistema PJe. Você pode fornecer o número da OAB, estado, página e limite de resultados por página.",
+                "footer": "",
+                "link": ""
             },
             "params": [
                 {
